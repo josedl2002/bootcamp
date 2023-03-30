@@ -19,8 +19,8 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required string max:255',
-            'body' => 'required string max:255',
+            'title' => 'required | string | max:120',
+            'body' => 'required | string | max:300',
        ]);
 
        $request->user()->posts()->create($validated);
@@ -33,8 +33,8 @@ class PostController extends Controller
         $this->authorize('update', $post);
 
         $validated = $request->validate([
-            'title' => ['required', 'string', 'max:255'],
-            'body' => ['required','string', 'max:255'],
+            'title' => ['required', 'string', 'max:120'],
+            'body' => ['required','string', 'max:300'],
        ]);
 
        $post->update($validated);

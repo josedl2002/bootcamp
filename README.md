@@ -1,5 +1,5 @@
 # bootcamp
-Proyecto con Laravel Breezse y React JS
+Proyecto con Laravel Breeze y React JS
 
 Hecho en Laravel 9.52.4 y PHP 8.2.0
 

@@ -10,6 +10,7 @@ import { useForm } from '@inertiajs/inertia-react'
 import { usePage } from '@inertiajs/react'
 
 
+
 dayjs.extend(relativeTime)
 
 export default function Post({ post }) {
@@ -52,6 +53,13 @@ export default function Post({ post }) {
                                         >
                                             Edit
                                         </button>
+                                        <Dropdown.Link
+                                as="button"
+                                href={route('posts.destroy', post.id)}
+                                method='delete'
+                                >
+                                    Borrar
+                                </Dropdown.Link>
                                     </Dropdown.Content>
                                 </Dropdown>
                             }
@@ -64,17 +72,24 @@ export default function Post({ post }) {
                                 type='text'
                                 className='mb-3 block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm'
                                 autoFocus
+                                required
                             />
                             <textarea
                                 value={data.body}
                                 onChange={e=>setData('body', e.target.value)}
                                 className='mt-4 w-full text-gray-900 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm'
+                                required
                             >    
                             </textarea>
                             <InputError message={errors.message} className='mt-2'/>
                             <div className='space-x-2'>
-                                <PrimaryButton className='mt-4'>Save</PrimaryButton>
-                                <button className='mt-4' onLick={()=>setEditing(false) && reset()} >Cancel</button>
+                                <PrimaryButton className='mt-4 text-white bg-gradient-to-br from-red-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2'
+                                disabled={processing}
+                                >Save</PrimaryButton>
+                                <button className='mt-4' onClick={()=>setEditing(false) && reset()}
+                                 >Cancel
+                                 </button>
+                                
                             </div>
                         </form>
                         : (

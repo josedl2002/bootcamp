@@ -28,10 +28,11 @@ export default function index({auth, posts}) {
                         onChange={e => setData('title', e.target.value)}
                         type='text'
                         placeholder='Title'
+                        required
                         autoFocus
                         className='mb-3 block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm'
                         />
-                        <InputError message={errors.title} className='mt-2 text-gray'/>
+                        <InputError className='mt-2 text-gray' message={errors.title} />
 
                         <textarea 
                         value={data.body}
@@ -39,6 +40,7 @@ export default function index({auth, posts}) {
                         type='text'
                         placeholder='Body'
                         autoFocus
+                        required
                         className='mb-3 block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm'
                         >
                         </textarea>
@@ -50,7 +52,7 @@ export default function index({auth, posts}) {
                             Crear
                         </PrimaryButton>
                     </form>
-                    <div className='mt-6 bg-indigo-400 rounded-lg divide-y-4 shadow-lg'>
+                    <div className='mt-6 bg-gray-400 rounded-lg divide-y-4 shadow-lg '>
                       {
                         posts.map( post =>
                           <Post key={post.id} post={post}/>

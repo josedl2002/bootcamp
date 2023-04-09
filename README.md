@@ -9,12 +9,14 @@ Composer: https://getcomposer.org/download/
 Node Js: https://nodejs.org/es/download
 Xampp: https://www.apachefriends.org/es/download.html
 
+Para poder comenzar a usar primer se abre Xampp y se ejecuta el MySQL
 
-Para poder comenzar a usar el programa primero se realizan las migraciones con:
+
+Una vez ejecutado el Mysql, se realizan las migraciones con:
 
 php artisan migrate
 
-Una vez hechas las migraciones se abre Xampp y se ejecuta el MySQL.
+
 
 Ya para empezar a correr el proyecto se inician los servidores de laravel y node js en la terminal:
 
